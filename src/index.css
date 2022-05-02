@@ -1,0 +1,390 @@
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container-fluid{
+  padding: 0px;
+}
+
+.navbar {
+  /* height: 67px; */
+  padding: 0px 1.75rem;
+  background-color: white;
+  border-bottom:2px solid rgb(233, 235, 240);
+}
+
+.navbar-brand {
+  margin: 0px;
+}
+
+.navbar img {
+  height: 32px; 
+  margin-right: 3rem;
+}
+.g-3 .mt-2 .d-block .text-end p{
+  font: 600 1.1rem / 28px Montserrat;
+}
+.mt-4.row p{
+  color: rgb(74, 79, 94);    
+  font: 600 1.1rem / 28px Montserrat;
+}
+
+.drop-navlink
+{
+  color: white;
+  margin: 0px;
+}
+
+.drop-navlink.dropdown-toggle.btn.btn-primary:focus{
+  box-shadow: none;
+}
+
+.drop-navlink.dropdown-toggle.btn.btn-primary{
+  margin: 0px;
+  padding: 0px;
+  background-color: white;
+}
+
+.drop-img{
+  height: 42px !important;
+  width: 42px;
+  margin-right: 0px !important;
+}
+.dropdown-toggle .nav-link{
+  width: 45px;
+}
+.nav-link {
+  color:rgb(51, 56, 79);
+  margin: 0px 32px;
+  padding: 0px;
+  padding-top: 16px;
+  padding-bottom: 19px;
+  font: 500 1rem / 28px Montserrat;
+  display: flex;
+  align-items: center;
+  height: 65px;
+}
+
+.nav-link.active{
+  color:rgb(51, 56, 79);
+  padding-bottom: 15px;
+  border-bottom: 4px solid #05acff;
+}
+
+.btn,.btn:active:focus,.btn:focus,.btn:active{
+  color: rgb(158, 161, 168);
+  background: rgb(233, 235, 240);
+  border: none;
+  box-shadow: none;
+  padding: 0.625rem 1rem;
+  font: 600 1rem / 20px Montserra;
+  border-radius: 4px;
+  width: -webkit-fill-available;
+  flex: 0 0 142px;
+  margin: 12px 24px;
+}
+
+.dropdown-menu[data-bs-popper]{
+  top: 53px;
+  left: -86px;
+  margin-top: 0.75rem;
+  outline: none;
+  box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
+  border-radius: 4px;
+  width: 180px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #fff;
+}
+
+.dropdown-menu hr{
+  background: rgb(233, 235, 240);
+  height: 2px;
+  margin: 0px 1rem;
+  margin-right :0px;
+}
+
+.dropdown-item{
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-bottom: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.svg-icon{
+  width: 24px;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.svg-icon~p{
+  color: rgb(102, 104, 110);
+  padding: 0px;
+  margin: 0px;
+  font: 500 1.1rem / 28px Montserrat;
+}
+
+.svg-icon~p p{
+  font: 500 0.85rem / 20px Montserrat;
+  padding: 0px;
+  margin: 0px;
+}
+
+.form-floating > label
+{
+  left: 11px;
+}
+.btn:hover{
+  color: rgb(158, 161, 168);
+  background-color: rgba(0, 0, 0, 0.34);
+  border: none;
+  box-shadow: none;
+}
+
+.content{
+  color: rgb(74, 79, 94);
+  font: 500 0.85rem / 20px Montserrat;
+  margin: 0px;
+}
+
+.cardlogo~p{
+  font: 600 1.25rem / 32px Montserrat;
+  margin: 0px;
+  margin-left: 0.7rem;
+  color: rgb(74, 79, 94);
+  line-height: 1.5rem;
+}
+
+.card{
+  position: relative;
+  width: 100%;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  box-shadow: rgb(56 66 95 / 8%) 0.125rem 0.125rem 0.25rem;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 1rem;
+  border: none;
+  padding: 1.5rem;
+}
+.card-body{
+  padding: 0px;
+}
+.cardlogo{
+  border-radius: 50%;
+  border: 1px solid white;
+  background-color: rgb(244, 245, 247);
+  width: 3.125rem;
+  height: 3.125rem;
+  padding: 0.75rem 0.875rem;
+}
+
+.detail-content-dot{
+  display: inline-block;
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: 0.25rem;
+  margin-bottom: 0.15rem;
+  background-color: rgb(102, 104, 110);
+  margin-right: 0.4rem;
+}
+
+.detail-content{
+  font: 500 0.85rem / 20px Montserrat;
+  color: rgb(102, 104, 110);
+  font-weight: bolder;
+}
+
+
+.nav-link:hover{
+  color:rgb(51, 56, 79);
+  padding-bottom: 15px;
+  border-bottom: 4px solid #6c757d5c;
+}
+.nav-link.active:hover{
+  color:rgb(51, 56, 79);
+  border-bottom: 4px solid #05acff;
+}
+
+.left-side{
+  padding: 1.5rem;
+  box-shadow: rgb(56 66 95 / 20%) 0.25rem 0.25rem 2.5rem;
+  background-color: rgb(244, 245, 247);
+  height: calc(100vh - 4.2rem);
+  overflow: auto;
+}
+.right-side{
+  padding: 1rem 1.5rem 3rem;
+  height: calc(100vh - 4.2rem);
+  overflow: auto;
+}
+.col-md>.row{
+  margin-top: 24px;
+}
+.form-control, .form-select{
+  border-radius: 0px;
+  border: 2px solid #05acff;
+  box-shadow: none;
+  background-color: rgb(244, 245, 247);
+  padding: 1rem 0.75rem;
+  line-height: 22px;
+
+}
+.left-panel-row{
+  margin: 0px;
+}
+.dropdown-toggle::after{
+  color: rgb(48, 151, 233);
+  margin: 0px 7px;
+  margin-right: 16px;
+  margin-left: 7px;
+}
+
+.form-control:focus, .form-select:focus{
+  box-shadow: none;
+  background-color: rgb(244, 245, 247);
+}
+.form-select:focus-visible{
+  border: 2px solid #05acff;
+}
+.form-floating > .form-control:focus ~ label{
+  transform: scale(0.85) translateY(-2.5rem) translateX(1.15rem);
+}
+.form-floating > label{
+  color: #707071;
+}
+
+hr{
+  margin: 1.5rem 0;
+}
+.nav-item{
+    display: flex;
+    width: 50%;
+    justify-content: center;
+}
+.col-sm-8 .nav-item{
+  display: flex;
+  width: 25%;
+  justify-content: center;
+  background-color: white;
+}
+
+.col-sm-8 .nav-item .nav-link.active{
+  background-color: white;
+}
+
+.col-sm-8 .nav-item .nav-link.active:hover{
+  background-color: white;
+}
+
+.nav-tabs .nav-link{
+  display: block;
+  width: 100%;
+  border: none;
+  padding-top: 13px;
+  padding-bottom: 16px;
+  font: 600 1rem / 20px Montserrat;
+  color: rgb(32, 37, 63);
+  margin: 0px;
+  height: 48px;
+  letter-spacing: 0.02857em;
+}
+h3{
+  color: rgb(74, 79, 94);
+  font: 600 1.25rem / 32px Montserrat;
+  margin: 0px;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+p{
+  font: 600 1.1rem / 28px Montserrat;
+}
+.accordion-item{
+  border: none;
+  padding: 0.5rem 0px;
+  border: 1px solid rgb(233, 235, 240);
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.accordion-button:not(.collapsed){
+  color: rgb(74, 79, 94);
+  background-color: white;
+}
+
+.accordion-header{
+  padding: 0px 16px;
+  color: rgb(32, 37, 63);
+  font: 600 1.25rem / 32px Montserrat;
+}
+
+.accordion-body{
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 28px;
+  color: rgb(74, 79, 94);
+}
+
+.accordion-item:not(:first-of-type){
+  border: 1px solid rgb(233, 235, 240);
+}
+
+.accordion-item .accordion-button{
+  margin-bottom: 1rem;
+  padding: 0px;
+  box-shadow: none;
+  margin: 12px 0;
+  color: rgb(32, 37, 63);
+  font: 600 1.25rem / 32px Montserrat;
+}
+
+.nav-tabs .nav-link.active:hover{
+  border-bottom: 4px solid #48c8ff;
+  background-color: rgb(244, 245, 247);
+  width: 100%;
+  color: rgb(32, 37, 63);
+}
+.nav-tabs .nav-link:hover{
+  border: none;
+  padding-bottom: 16px;
+}
+.nav-tabs .nav-link.active{
+  border: none;
+  border-bottom: 4px solid #48c8ff;
+  padding-bottom: 12px;
+  color: rgb(32, 37, 63);
+  background-color: rgb(244, 245, 247);
+}
+
+.btn-submit{
+  color: white;
+  background: rgb(88, 183, 47);
+  letter-spacing: 0.02em;
+  display: inline-block;
+  font: 600 1rem / 20px Montserrat;
+  text-transform: none;
+  border-radius: 4px;
+  border:0;
+  width:200px;
+  height: 50px;
+}
+.credit-p{
+  color: rgb(74, 79, 94);
+  margin-right: 1rem;
+}
+
+.nav.nav-tabs{
+  margin-bottom :32px;
+}
+
+#left-panel-tabpane-Search-History .row{
+  margin: 0px;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
