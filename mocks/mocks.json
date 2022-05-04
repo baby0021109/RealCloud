@@ -1,7 +1,7 @@
 [
   {
     "id": "base",
-    "routesVariants": ["add-headers:enabled", "get-users:success", "get-user:success"]
+    "routesVariants": ["add-headers:enabled", "get-histories:success", "get-history:success"]
   },
   {
     "id": "no-headers",
@@ -9,8 +9,8 @@
     "routesVariants": ["add-headers:disabled"]
   },
   {
-    "id": "user-real",
+    "id": "history-real",
     "from": "no-headers",
-    "routesVariants": ["get-user:real"]
+    "routesVariants": ["get-history:real"]
   }
 ]

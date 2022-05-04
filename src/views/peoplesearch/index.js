@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Container, Row, Tabs, Tab, FloatingLabel, Form, Accordion, Card} from 'react-bootstrap';
 import { CountryRegionData } from 'react-country-region-selector';
+import { useDispatch, useSelector } from 'react-redux'
+import { API_URL } from '../../constants/default';
 
 const PeopleSearch = ({}) => {
+
+    const dispatch = useDispatch();
+    const { histories } = useSelector(state => state.historyReducer)
+    useEffect(() => {
+        fetch(`${API_URL}/api/histories`).then(async (data) => {
+            let histories = await data.json();
+            dispatch({type:'ADD', payload: histories});
+        }).catch(err => {
+            console.log(err);
+        });
+    }, [])
+
     return (
         <Container fluid>
             <Row className="left-panel-row">
@@ -12,101 +26,29 @@ const PeopleSearch = ({}) => {
                             <div>ssddddfdf</div>
                         </Tab>
                         <Tab eventKey="Search-History" id="search-history" title="Search History">
-                            <Row>
-                                <Card>
-                                    <Card.Body>
-                                        <div class = "d-flex align-items-center">
-                                            <div class="cardlogo">
-                                                <img
-                                                    src="./../Cardlogo.png"
-                                                    className="d-inline-block align-top"
-                                                />
-                                            </div>
-                                            <p>Emmanuel Lao</p>
-                                        </div>
-                                        <div class="d-flex align-items-center mt-1">
-                                            <span class="detail-content-dot"></span>
-                                            <p class="m-0 detail-content"> &nbsp; Country: US</p>
-                                        </div>
-                                    </Card.Body>
-                                </Card>
-                            </Row>
-                            <Row>
-                                <Card>
-                                    <Card.Body>
-                                        <div class = "d-flex align-items-center">
-                                            <div class="cardlogo">
-                                                <img
-                                                    src="./../Cardlogo.png"
-                                                    className="d-inline-block align-top"
-                                                />
-                                            </div>
-                                            <p>Emmanuel Lao</p>
-                                        </div>
-                                        <div class="d-flex align-items-center mt-1">
-                                            <span class="detail-content-dot"></span>
-                                            <p class="m-0 detail-content"> Country: US</p>
-                                        </div>
-                                    </Card.Body>
-                                </Card>
-                            </Row>
-                            <Row>
-                                <Card>
-                                    <Card.Body>
-                                        <div class = "d-flex align-items-center">
-                                            <div class="cardlogo">
-                                                <img
-                                                    src="./../Cardlogo.png"
-                                                    className="d-inline-block align-top"
-                                                />
-                                            </div>
-                                            <p>Emmanuel Lao</p>
-                                        </div>
-                                        <div class="d-flex align-items-center mt-1">
-                                            <span class="detail-content-dot"></span>
-                                            <p class="m-0 detail-content"> Country: US</p>
-                                        </div>
-                                    </Card.Body>
-                                </Card>
-                            </Row>
-                            <Row>
-                                <Card>
-                                    <Card.Body>
-                                        <div class = "d-flex align-items-center">
-                                            <div class="cardlogo">
-                                                <img
-                                                    src="./../Cardlogo.png"
-                                                    className="d-inline-block align-top"
-                                                />
-                                            </div>
-                                            <p>Emmanuel Lao</p>
-                                        </div>
-                                        <div class="d-flex align-items-center mt-1">
-                                            <span class="detail-content-dot"></span>
-                                            <p class="m-0 detail-content"> Country: US</p>
-                                        </div>
-                                    </Card.Body>
-                                </Card>
-                            </Row>
-                            <Row>
-                                <Card>
-                                    <Card.Body>
-                                        <div class = "d-flex align-items-center">
-                                            <div class="cardlogo">
-                                                <img
-                                                    src="./../Cardlogo.png"
-                                                    className="d-inline-block align-top"
-                                                />
-                                            </div>
-                                            <p>Emmanuel Lao</p>
-                                        </div>
-                                        <div class="d-flex align-items-center mt-1">
-                                            <span class="detail-content-dot"></span>
-                                            <p class="m-0 detail-content"> Country: US</p>
-                                        </div>
-                                    </Card.Body>
-                                </Card>
-                            </Row>
+                            {
+                                histories.map((history, index) => (
+                                    <Row key={index}>
+                                        <Card>
+                                            <Card.Body>
+                                                <div class = "d-flex align-items-center">
+                                                    <div class="cardlogo">
+                                                        <img
+                                                            src="./../Cardlogo.png"
+                                                            className="d-inline-block align-top"
+                                                        />
+                                                    </div>
+                                                    <p>{`${history.firstName} ${history.lastName}`}</p>
+                                                </div>
+                                                <div class="d-flex align-items-center mt-1">
+                                                    <span class="detail-content-dot"></span>
+                                                    <p class="m-0 detail-content"> &nbsp; Country: {history.countryCode}</p>
+                                                </div>
+                                            </Card.Body>
+                                        </Card>
+                                    </Row>
+                                ))
+                            }
                         </Tab>
                     </Tabs>
                 </Col>
