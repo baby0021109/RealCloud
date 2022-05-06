@@ -395,6 +395,92 @@ p {
 #left-panel-tabpane-Search-History .row {
   margin: 0px;
 }
+#left-panel-tabpane-Search-Result .row {
+  margin: 0px;
+}
+
+.result-cnt-p {
+  color: rgb(51, 56, 79);
+  font: 500 1.1rem / 28px Montserrat;
+}
+
+.search-result-card-body {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-flow: row wrap;
+  margin-right: 0rem;
+  margin-left: 0rem;
+}
+
+.search-result-card-body h3 {
+  color: rgb(74, 79, 94);
+  font: 600 1.25rem / 32px Montserrat;
+  line-height: 1.5rem;
+  margin: 0px;
+  display: inline-block;
+}
+
+.search-result-card-body p {
+  color: rgb(74, 79, 94);
+  text-transform: capitalize;
+  font: 500 0.85rem / 20px Montserrat;
+  padding: 0px;
+  margin: 0px;
+}
+
+.match-level-weak {
+  color: white;
+  background-color: rgb(255, 137, 117);
+  font: 500 0.75rem / 20px Montserrat;
+  text-align: right;
+  padding: 0.25rem 1.5rem;
+  border-radius: 2.5rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.logo-name-weak-div {
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  flex-wrap: wrap-reverse;
+  flex-basis: 100%;
+  max-width: 100%;
+}
+
+.personal-property-div {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-basis: 50%;
+  max-width: 50%;
+}
+
+.personal-property-div.address-div {
+  flex-basis: 100%;
+  max-width: 100%;
+}
+
+.personal-property-div p {
+  color: rgb(102, 104, 110);
+  font: 500 0.85rem / 20px Montserrat;
+  padding: 0px;
+  margin: 0px;
+}
+
+.personal-property-div b {
+  font-weight: bolder;
+}
+
+.personal-property-div a {
+  text-decoration: none;
+  color: rgb(51, 141, 188);
+  transition: color 0.5s ease 0s;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

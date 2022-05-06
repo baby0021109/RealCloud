@@ -1,7 +1,12 @@
 [
   {
     "id": "base",
-    "routesVariants": ["add-headers:enabled", "get-histories:success", "get-history:success"]
+    "routesVariants": [
+      "add-headers:enabled",
+      "get-histories:success",
+      "get-history:success",
+      "get-searchresult:success"
+    ]
   },
   {
     "id": "no-headers",
