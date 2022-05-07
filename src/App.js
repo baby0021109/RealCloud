@@ -3,11 +3,12 @@ import { BrowserRouter } from "react-router-dom";
 import React from "react";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import history from "./history";
 
 function App() {
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter history={history}>
         <MainRouter />
       </BrowserRouter>
     </Provider>

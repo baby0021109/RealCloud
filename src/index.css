@@ -219,6 +219,7 @@ body {
   padding: 1rem 1.5rem 3rem;
   height: calc(100vh - 4.2rem);
   overflow: auto;
+  position: relative;
 }
 .col-md > .row {
   margin-top: 24px;
@@ -480,7 +481,178 @@ p {
   color: rgb(51, 141, 188);
   transition: color 0.5s ease 0s;
 }
+.selected-result-bg {
+  background-color: rgba(241, 145, 68, 0.2);
+}
 
+.person-detail-wrapper {
+  position: absolute;
+  z-index: 1;
+  left: 1.5rem;
+  top: 1rem;
+  width: 100%;
+  height: 100%;
+  background: white;
+}
+
+.cross-btn {
+  position: absolute;
+  top: 0px;
+  right: 1rem;
+  padding: 0.3rem 0.7rem 0.5rem;
+  transition: color 0.6s ease 0s;
+  cursor: pointer;
+  font-size: 1.5rem;
+  z-index: 105;
+}
+
+.user-info-section {
+  padding: 1.5rem 0rem;
+  margin: 0.5rem;
+  position: relative;
+}
+.phonenumber {
+  color: rgb(74, 79, 94);
+  text-transform: capitalize;
+  margin: 0px;
+  font: 500 1.1rem / 28px Montserrat;
+  line-height: 1.3rem;
+}
+
+.phonenumber a {
+  text-decoration: none;
+  color: rgb(51, 141, 188);
+  transition: color 0.5s ease 0s;
+}
+
+.phonenumber b {
+  font-weight: bolder;
+}
+
+.profile {
+  margin-left: 0.7rem;
+}
+
+.cross-btn svg {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+}
+
+.user-name {
+  font: 600 1.25rem / 32px Montserrat;
+  margin: 0px;
+  display: inline-block;
+  color: rgb(74, 79, 94);
+  line-height: 1.5rem;
+}
+
+.copy-info-button {
+  color: rgb(5, 172, 255);
+  background: white;
+  border: none;
+  box-shadow: none;
+  padding: 0.625rem 1rem;
+  font: 600 1rem / 20px Montserra;
+  border-radius: 4px;
+  padding: 0.625rem 1rem;
+  letter-spacing: 0.02em;
+  height: 40px;
+}
+
+.copy-info-button:hover {
+  color: rgb(5, 172, 255);
+  background-color: rgba(0, 0, 0, 0.34);
+  border: none;
+  box-shadow: none;
+}
+
+.copy-info-button span {
+  width: 100%;
+  display: inherit;
+  align-items: inherit;
+  justify-content: inherit;
+}
+
+.names-field {
+  border-top: 2px solid rgb(233, 235, 240);
+  padding: 1rem 0px;
+  position: relative;
+  font-size: 0.9rem;
+  padding-bottom: 0.3rem;
+}
+
+.display-content {
+  flex-basis: 66.6667%;
+  max-width: 66.6667%;
+  display: block;
+  color: rgb(102, 104, 110);
+  font: 500 1.1rem / 28px Montserrat;
+}
+
+.display-content1 {
+  flex-basis: 33.3334%;
+  max-width: 33.3334%;
+  display: block;
+  color: rgb(102, 104, 110);
+  font: 500 1.1rem / 28px Montserrat;
+}
+
+.display-content2 {
+  flex-basis: 25%;
+  max-width: 25%;
+  display: block;
+  color: rgb(102, 104, 110);
+  font: 500 1.1rem / 28px Montserrat;
+}
+.names-field h3 {
+  margin: 0px;
+  color: rgb(32, 37, 63);
+}
+
+.cpy-to-clipboard-span {
+  color: red;
+  display: none;
+  position: absolute;
+  right: 2rem;
+  top: 1.5rem;
+  cursor: pointer;
+}
+.field {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-flow: row wrap;
+  margin-right: 0rem;
+  margin-left: 0rem;
+  color: rgb(102, 104, 110);
+  margin-top: 0.75rem;
+}
+.cpy-to-clipboard-img {
+  position: absolute;
+  right: 0px;
+  top: 1.5rem;
+  cursor: pointer;
+}
+
+.names-field:hover .cpy-to-clipboard-span {
+  display: block;
+}
+
+.cpy-to-clipboard-img:hover {
+  opacity: 0.6;
+}
+
+.cpy-to-clipboard-span:hover {
+  opacity: 0.6;
+}
+
+.seen-field {
+  color: rgb(102, 104, 110);
+  font: 500 0.85rem / 20px Montserrat;
+  padding: 0px;
+  margin: 0px;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

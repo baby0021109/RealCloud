@@ -1,6 +1,8 @@
 import React from "react";
 import { Container, Nav, Navbar, Dropdown, Button } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
+import logoImg from "../../assets/logo.png";
+import avatar from "../../assets/user.jpg";
 
 export default function Header() {
   const location = useLocation();
@@ -9,7 +11,7 @@ export default function Header() {
       <Container fluid>
         <Navbar.Brand href="/">
           <img
-            src="./../logo.png"
+            src={logoImg}
             className="d-inline-block align-top"
             alt="Real Cloud"
           />
@@ -45,7 +47,7 @@ export default function Header() {
               <Dropdown>
                 <Dropdown.Toggle className="drop-navlink">
                   <img
-                    src="./../user.jpg"
+                    src={avatar}
                     className="drop-img rounded-circle"
                     alt="userlogo"
                   />
