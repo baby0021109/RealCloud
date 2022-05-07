@@ -264,7 +264,7 @@ const PeopleSearch = ({ personDetail }) => {
                 </div>
                 <div className="names-field">
                   <div className="d-flex">
-                    <h3>Names</h3>
+                    {person_info.names && <h3>Names</h3>}
                     <div className="h-0">
                       <span className="cpy-to-clipboard-span">
                         Copy to clipboard
@@ -289,262 +289,307 @@ const PeopleSearch = ({ personDetail }) => {
                       </div>
                     ))}
                 </div>
-                <div className="names-field">
-                  <div className="d-flex">
-                    <h3>Phones</h3>
-                    <div className="h-0">
-                      <span className="cpy-to-clipboard-span">
-                        Copy to clipboard
-                      </span>
-                      <img
-                        className="cpy-to-clipboard-img"
-                        src="data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Crect x='7.75' y='2.75' width='8.5' height='10.5' rx='1.25' stroke='%239EA1A8' stroke-width='1.5'/%3E %3Crect x='3.75' y='6.75' width='8.5' height='10.5' rx='1.25' fill='white' stroke='%239EA1A8' stroke-width='1.5'/%3E %3C/svg%3E"
-                      ></img>
-                    </div>
-                  </div>
-                  {person_info.phones &&
-                    person_info.phones.map((person, index) => (
-                      <div className="field" key={index}>
-                        <div className="display-content1">
-                          <a href={`tel:${person.numbers}`}>
-                            <span style={{ color: "rgb(48, 151, 233)" }}>
-                              {person.display}
-                            </span>
-                            <span style={{ color: "rgb(252, 151, 95)" }}>
-                              {person["@type"]}
-                            </span>
-                          </a>
-                        </div>
-                        <div className="seen-field">
-                          Valid Since{" "}
-                          {person["@valid_since"] ? person["@valid_since"] : ""}
-                          {person["@last_seen"]
-                            ? "Last Seen" + person["@last_seen"]
-                            : ""}
-                        </div>
-                      </div>
-                    ))}
-                </div>
-                <div className="names-field">
-                  <div className="d-flex">
-                    <div className="h-0">
-                      <span className="cpy-to-clipboard-span">
-                        Copy to clipboard
-                      </span>
-                      <img
-                        className="cpy-to-clipboard-img"
-                        src="data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Crect x='7.75' y='2.75' width='8.5' height='10.5' rx='1.25' stroke='%239EA1A8' stroke-width='1.5'/%3E %3Crect x='3.75' y='6.75' width='8.5' height='10.5' rx='1.25' fill='white' stroke='%239EA1A8' stroke-width='1.5'/%3E %3C/svg%3E"
-                      ></img>
-                    </div>
-                  </div>
-                  {person_info.gender && person_info.dob && (
-                    <div className="field">
-                      <div className="display-content2">
-                        <h3>Phones</h3>
-                        <p>{person_info.gender.content}</p>
-                      </div>
-                      <div className="display-content2">
-                        <h3>Age</h3>
-                        <p>{person_info.dob.display}</p>
-                      </div>
-                      <div className="display-content2">
-                        <h3>DoB</h3>
-                        <p>
-                          {person_info.dob.date_range.start}~
-                          {person_info.dob.date_range.end}
-                        </p>
-                      </div>
-                    </div>
-                  )}
-                </div>
-                <div className="names-field">
-                  <div className="d-flex">
-                    <h3>Usernames</h3>
-                    <div className="h-0">
-                      <span className="cpy-to-clipboard-span">
-                        Copy to clipboard
-                      </span>
-                      <img
-                        className="cpy-to-clipboard-img"
-                        src="data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Crect x='7.75' y='2.75' width='8.5' height='10.5' rx='1.25' stroke='%239EA1A8' stroke-width='1.5'/%3E %3Crect x='3.75' y='6.75' width='8.5' height='10.5' rx='1.25' fill='white' stroke='%239EA1A8' stroke-width='1.5'/%3E %3C/svg%3E"
-                      ></img>
-                    </div>
-                  </div>
-                  {person_info.usernames &&
-                    person_info.usernames.map((person, index) => (
-                      <div className="field" key={index}>
-                        <div className="display-content">{person.content}</div>
-                        <div className="seen-field">
-                          Valid Since{" "}
-                          {person["@valid_since"] ? person["@valid_since"] : ""}
-                          {person["@last_seen"]
-                            ? "Last Seen" + person["@last_seen"]
-                            : ""}
-                        </div>
-                      </div>
-                    ))}
-                </div>
-                <div className="names-field">
-                  <div className="d-flex">
-                    <h3>User IDs</h3>
-                    <div className="h-0">
-                      <span className="cpy-to-clipboard-span">
-                        Copy to clipboard
-                      </span>
-                      <img
-                        className="cpy-to-clipboard-img"
-                        src="data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Crect x='7.75' y='2.75' width='8.5' height='10.5' rx='1.25' stroke='%239EA1A8' stroke-width='1.5'/%3E %3Crect x='3.75' y='6.75' width='8.5' height='10.5' rx='1.25' fill='white' stroke='%239EA1A8' stroke-width='1.5'/%3E %3C/svg%3E"
-                      ></img>
-                    </div>
-                  </div>
-                  {person_info.user_ids &&
-                    person_info.user_ids.map((person, index) => (
-                      <div className="field" key={index}>
-                        <div className="display-content">{person.content}</div>
-                        <div className="seen-field">
-                          Valid Since{" "}
-                          {person["@valid_since"] ? person["@valid_since"] : ""}
-                          {person["@last_seen"]
-                            ? "Last Seen" + person["@last_seen"]
-                            : ""}
-                        </div>
-                      </div>
-                    ))}
-                </div>
-                <div className="names-field">
-                  <div className="d-flex">
-                    <h3>Address</h3>
-                    <div className="h-0">
-                      <span className="cpy-to-clipboard-span">
-                        Copy to clipboard
-                      </span>
-                      <img
-                        className="cpy-to-clipboard-img"
-                        src="data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Crect x='7.75' y='2.75' width='8.5' height='10.5' rx='1.25' stroke='%239EA1A8' stroke-width='1.5'/%3E %3Crect x='3.75' y='6.75' width='8.5' height='10.5' rx='1.25' fill='white' stroke='%239EA1A8' stroke-width='1.5'/%3E %3C/svg%3E"
-                      ></img>
-                    </div>
-                  </div>
-                  {person_info.addresses &&
-                    person_info.addresses.map((person, index) => (
-                      <div className="field" key={index}>
-                        <div className="display-content">{person.display}</div>
-                        <div className="seen-field">
-                          Valid Since{" "}
-                          {person["@valid_since"] ? person["@valid_since"] : ""}
-                          {person["@last_seen"]
-                            ? "Last Seen" + person["@last_seen"]
-                            : ""}
-                        </div>
-                      </div>
-                    ))}
-                </div>
-                <div className="names-field">
-                  <div className="d-flex">
-                    <h3>Education</h3>
-                    <div className="h-0">
-                      <span className="cpy-to-clipboard-span">
-                        Copy to clipboard
-                      </span>
-                      <img
-                        className="cpy-to-clipboard-img"
-                        src="data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Crect x='7.75' y='2.75' width='8.5' height='10.5' rx='1.25' stroke='%239EA1A8' stroke-width='1.5'/%3E %3Crect x='3.75' y='6.75' width='8.5' height='10.5' rx='1.25' fill='white' stroke='%239EA1A8' stroke-width='1.5'/%3E %3C/svg%3E"
-                      ></img>
-                    </div>
-                  </div>
-                  {person_info.educations &&
-                    person_info.educations.map((person, index) => (
-                      <div className="field" key={index}>
-                        <div className="display-content">{person.display}</div>
-                        <div className="seen-field">
-                          Valid Since{" "}
-                          {person["@valid_since"] ? person["@valid_since"] : ""}
-                          {person["@last_seen"]
-                            ? "Last Seen" + person["@last_seen"]
-                            : ""}
-                        </div>
-                      </div>
-                    ))}
-                </div>
-                <div className="names-field">
-                  <div className="d-flex">
-                    <h3>Jobs</h3>
-                    <div className="h-0">
-                      <span className="cpy-to-clipboard-span">
-                        Copy to clipboard
-                      </span>
-                      <img
-                        className="cpy-to-clipboard-img"
-                        src="data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Crect x='7.75' y='2.75' width='8.5' height='10.5' rx='1.25' stroke='%239EA1A8' stroke-width='1.5'/%3E %3Crect x='3.75' y='6.75' width='8.5' height='10.5' rx='1.25' fill='white' stroke='%239EA1A8' stroke-width='1.5'/%3E %3C/svg%3E"
-                      ></img>
-                    </div>
-                  </div>
-                  {person_info.jobs &&
-                    person_info.jobs.map((person, index) => (
-                      <div className="field" key={index}>
-                        <div className="display-content">{person.display}</div>
-                        <div className="seen-field">
-                          Valid Since{" "}
-                          {person["@valid_since"] ? person["@valid_since"] : ""}
-                          {person["@last_seen"]
-                            ? "Last Seen" + person["@last_seen"]
-                            : ""}
-                        </div>
-                      </div>
-                    ))}
-                </div>
-                <div className="names-field">
-                  <div className="d-flex">
-                    <h3>Relationships</h3>
-                    <div className="h-0">
-                      <span className="cpy-to-clipboard-span">
-                        Copy to clipboard
-                      </span>
-                      <img
-                        className="cpy-to-clipboard-img"
-                        src="data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Crect x='7.75' y='2.75' width='8.5' height='10.5' rx='1.25' stroke='%239EA1A8' stroke-width='1.5'/%3E %3Crect x='3.75' y='6.75' width='8.5' height='10.5' rx='1.25' fill='white' stroke='%239EA1A8' stroke-width='1.5'/%3E %3C/svg%3E"
-                      ></img>
-                    </div>
-                  </div>
-                  {person_info.relationships &&
-                    person_info.relationships.map((person, index) => (
-                      <div className="field" key={index}>
-                        <div className="display-content2">
-                          {person.names[0].display}
-                        </div>
-                        <div className="display-content2">
-                          {person["@type"]}
-                        </div>
-                      </div>
-                    ))}
-                </div>
-                <div className="names-field">
-                  <div className="d-flex">
-                    <h3>Photo</h3>
-                    <div className="h-0">
-                      <span className="cpy-to-clipboard-span">
-                        Copy to clipboard
-                      </span>
-                      <img
-                        className="cpy-to-clipboard-img"
-                        src="data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Crect x='7.75' y='2.75' width='8.5' height='10.5' rx='1.25' stroke='%239EA1A8' stroke-width='1.5'/%3E %3Crect x='3.75' y='6.75' width='8.5' height='10.5' rx='1.25' fill='white' stroke='%239EA1A8' stroke-width='1.5'/%3E %3C/svg%3E"
-                      ></img>
-                    </div>
-                  </div>
-                  {person_info.images && (
-                    <div className="field">
-                      <div className="display-content2">
+                {person_info.phones && (
+                  <div className="names-field">
+                    <div className="d-flex">
+                      <h3>Phones</h3>
+                      <div className="h-0">
+                        <span className="cpy-to-clipboard-span">
+                          Copy to clipboard
+                        </span>
                         <img
-                          src={person_info.images[0].url}
-                          style={{
-                            width: "160px",
-                            height: "160px",
-                            background: "black",
-                          }}
+                          className="cpy-to-clipboard-img"
+                          src="data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Crect x='7.75' y='2.75' width='8.5' height='10.5' rx='1.25' stroke='%239EA1A8' stroke-width='1.5'/%3E %3Crect x='3.75' y='6.75' width='8.5' height='10.5' rx='1.25' fill='white' stroke='%239EA1A8' stroke-width='1.5'/%3E %3C/svg%3E"
                         ></img>
                       </div>
                     </div>
-                  )}
-                </div>
+
+                    {person_info.phones &&
+                      person_info.phones.map((person, index) => (
+                        <div className="field" key={index}>
+                          <div className="display-content1">
+                            <a href={`tel:${person.numbers}`}>
+                              <span style={{ color: "rgb(48, 151, 233)" }}>
+                                {person.display}
+                              </span>
+                              <span style={{ color: "rgb(252, 151, 95)" }}>
+                                {person["@type"]}
+                              </span>
+                            </a>
+                          </div>
+                          <div className="seen-field">
+                            Valid Since{" "}
+                            {person["@valid_since"]
+                              ? person["@valid_since"]
+                              : ""}
+                            {person["@last_seen"]
+                              ? "Last Seen" + person["@last_seen"]
+                              : ""}
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                )}
+                {person_info.gender && person_info.dob && (
+                  <div className="names-field">
+                    <div className="d-flex">
+                      <div className="h-0">
+                        <span className="cpy-to-clipboard-span">
+                          Copy to clipboard
+                        </span>
+                        <img
+                          className="cpy-to-clipboard-img"
+                          src="data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Crect x='7.75' y='2.75' width='8.5' height='10.5' rx='1.25' stroke='%239EA1A8' stroke-width='1.5'/%3E %3Crect x='3.75' y='6.75' width='8.5' height='10.5' rx='1.25' fill='white' stroke='%239EA1A8' stroke-width='1.5'/%3E %3C/svg%3E"
+                        ></img>
+                      </div>
+                    </div>
+
+                    {person_info.gender && person_info.dob && (
+                      <div className="field">
+                        <div className="display-content2">
+                          <h3>Phones</h3>
+                          <p>{person_info.gender.content}</p>
+                        </div>
+                        <div className="display-content2">
+                          <h3>Age</h3>
+                          <p>{person_info.dob.display}</p>
+                        </div>
+                        <div className="display-content2">
+                          <h3>DoB</h3>
+                          <p>
+                            {person_info.dob.date_range.start}~
+                            {person_info.dob.date_range.end}
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
+                {person_info.usernames && (
+                  <div className="names-field">
+                    <div className="d-flex">
+                      <h3>Usernames</h3>
+                      <div className="h-0">
+                        <span className="cpy-to-clipboard-span">
+                          Copy to clipboard
+                        </span>
+                        <img
+                          className="cpy-to-clipboard-img"
+                          src="data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Crect x='7.75' y='2.75' width='8.5' height='10.5' rx='1.25' stroke='%239EA1A8' stroke-width='1.5'/%3E %3Crect x='3.75' y='6.75' width='8.5' height='10.5' rx='1.25' fill='white' stroke='%239EA1A8' stroke-width='1.5'/%3E %3C/svg%3E"
+                        ></img>
+                      </div>
+                    </div>
+                    {person_info.usernames &&
+                      person_info.usernames.map((person, index) => (
+                        <div className="field" key={index}>
+                          <div className="display-content">
+                            {person.content}
+                          </div>
+                          <div className="seen-field">
+                            Valid Since{" "}
+                            {person["@valid_since"]
+                              ? person["@valid_since"]
+                              : ""}
+                            {person["@last_seen"]
+                              ? "Last Seen" + person["@last_seen"]
+                              : ""}
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                )}
+                {person_info.user_ids && (
+                  <div className="names-field">
+                    <div className="d-flex">
+                      <h3>User IDs</h3>
+                      <div className="h-0">
+                        <span className="cpy-to-clipboard-span">
+                          Copy to clipboard
+                        </span>
+                        <img
+                          className="cpy-to-clipboard-img"
+                          src="data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Crect x='7.75' y='2.75' width='8.5' height='10.5' rx='1.25' stroke='%239EA1A8' stroke-width='1.5'/%3E %3Crect x='3.75' y='6.75' width='8.5' height='10.5' rx='1.25' fill='white' stroke='%239EA1A8' stroke-width='1.5'/%3E %3C/svg%3E"
+                        ></img>
+                      </div>
+                    </div>
+                    {person_info.user_ids &&
+                      person_info.user_ids.map((person, index) => (
+                        <div className="field" key={index}>
+                          <div className="display-content">
+                            {person.content}
+                          </div>
+                          <div className="seen-field">
+                            Valid Since{" "}
+                            {person["@valid_since"]
+                              ? person["@valid_since"]
+                              : ""}
+                            {person["@last_seen"]
+                              ? "Last Seen" + person["@last_seen"]
+                              : ""}
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                )}
+                {person_info.addresses && (
+                  <div className="names-field">
+                    <div className="d-flex">
+                      <h3>Address</h3>
+                      <div className="h-0">
+                        <span className="cpy-to-clipboard-span">
+                          Copy to clipboard
+                        </span>
+                        <img
+                          className="cpy-to-clipboard-img"
+                          src="data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Crect x='7.75' y='2.75' width='8.5' height='10.5' rx='1.25' stroke='%239EA1A8' stroke-width='1.5'/%3E %3Crect x='3.75' y='6.75' width='8.5' height='10.5' rx='1.25' fill='white' stroke='%239EA1A8' stroke-width='1.5'/%3E %3C/svg%3E"
+                        ></img>
+                      </div>
+                    </div>
+
+                    {person_info.addresses &&
+                      person_info.addresses.map((person, index) => (
+                        <div className="field" key={index}>
+                          <div className="display-content">
+                            {person.display}
+                          </div>
+                          <div className="seen-field">
+                            Valid Since{" "}
+                            {person["@valid_since"]
+                              ? person["@valid_since"]
+                              : ""}
+                            {person["@last_seen"]
+                              ? "Last Seen" + person["@last_seen"]
+                              : ""}
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                )}
+                {person_info.educations && (
+                  <div className="names-field">
+                    <div className="d-flex">
+                      <h3>Education</h3>
+                      <div className="h-0">
+                        <span className="cpy-to-clipboard-span">
+                          Copy to clipboard
+                        </span>
+                        <img
+                          className="cpy-to-clipboard-img"
+                          src="data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Crect x='7.75' y='2.75' width='8.5' height='10.5' rx='1.25' stroke='%239EA1A8' stroke-width='1.5'/%3E %3Crect x='3.75' y='6.75' width='8.5' height='10.5' rx='1.25' fill='white' stroke='%239EA1A8' stroke-width='1.5'/%3E %3C/svg%3E"
+                        ></img>
+                      </div>
+                    </div>
+
+                    {person_info.educations &&
+                      person_info.educations.map((person, index) => (
+                        <div className="field" key={index}>
+                          <div className="display-content">
+                            {person.display}
+                          </div>
+                          <div className="seen-field">
+                            Valid Since{" "}
+                            {person["@valid_since"]
+                              ? person["@valid_since"]
+                              : ""}
+                            {person["@last_seen"]
+                              ? "Last Seen" + person["@last_seen"]
+                              : ""}
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                )}
+                {person_info.jobs && (
+                  <div className="names-field">
+                    <div className="d-flex">
+                      <h3>Jobs</h3>
+                      <div className="h-0">
+                        <span className="cpy-to-clipboard-span">
+                          Copy to clipboard
+                        </span>
+                        <img
+                          className="cpy-to-clipboard-img"
+                          src="data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Crect x='7.75' y='2.75' width='8.5' height='10.5' rx='1.25' stroke='%239EA1A8' stroke-width='1.5'/%3E %3Crect x='3.75' y='6.75' width='8.5' height='10.5' rx='1.25' fill='white' stroke='%239EA1A8' stroke-width='1.5'/%3E %3C/svg%3E"
+                        ></img>
+                      </div>
+                    </div>
+                    {person_info.jobs &&
+                      person_info.jobs.map((person, index) => (
+                        <div className="field" key={index}>
+                          <div className="display-content">
+                            {person.display}
+                          </div>
+                          <div className="seen-field">
+                            Valid Since{" "}
+                            {person["@valid_since"]
+                              ? person["@valid_since"]
+                              : ""}
+                            {person["@last_seen"]
+                              ? "Last Seen" + person["@last_seen"]
+                              : ""}
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                )}
+                {person_info.relationships && (
+                  <div className="names-field">
+                    <div className="d-flex">
+                      <h3>Relationships</h3>
+                      <div className="h-0">
+                        <span className="cpy-to-clipboard-span">
+                          Copy to clipboard
+                        </span>
+                        <img
+                          className="cpy-to-clipboard-img"
+                          src="data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Crect x='7.75' y='2.75' width='8.5' height='10.5' rx='1.25' stroke='%239EA1A8' stroke-width='1.5'/%3E %3Crect x='3.75' y='6.75' width='8.5' height='10.5' rx='1.25' fill='white' stroke='%239EA1A8' stroke-width='1.5'/%3E %3C/svg%3E"
+                        ></img>
+                      </div>
+                    </div>
+                    {person_info.relationships &&
+                      person_info.relationships.map((person, index) => (
+                        <div className="field" key={index}>
+                          <div className="display-content2">
+                            {person.names[0].display}
+                          </div>
+                          <div className="display-content2">
+                            {person["@type"]}
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                )}
+                {person_info.images && (
+                  <div className="names-field">
+                    <div className="d-flex">
+                      <h3>Photo</h3>
+                      <div className="h-0">
+                        <span className="cpy-to-clipboard-span">
+                          Copy to clipboard
+                        </span>
+                        <img
+                          className="cpy-to-clipboard-img"
+                          src="data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Crect x='7.75' y='2.75' width='8.5' height='10.5' rx='1.25' stroke='%239EA1A8' stroke-width='1.5'/%3E %3Crect x='3.75' y='6.75' width='8.5' height='10.5' rx='1.25' fill='white' stroke='%239EA1A8' stroke-width='1.5'/%3E %3C/svg%3E"
+                        ></img>
+                      </div>
+                    </div>
+
+                    {person_info.images && (
+                      <div className="field">
+                        <div className="display-content2">
+                          <img
+                            src={person_info.images[0].url}
+                            style={{
+                              width: "160px",
+                              height: "160px",
+                              background: "black",
+                            }}
+                          ></img>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           ) : (
