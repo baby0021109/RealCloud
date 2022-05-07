@@ -337,7 +337,7 @@ const PeopleSearch = ({ personDetail }) => {
                       ></img>
                     </div>
                   </div>
-                  {person_info.gender && (
+                  {person_info.gender && person_info.dob && (
                     <div className="field">
                       <div className="display-content2">
                         <h3>Phones</h3>
