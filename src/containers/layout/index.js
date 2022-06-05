@@ -6,6 +6,7 @@ import Footer from "../footer";
 import Content from "../content";
 
 import PeopleSearch from "../../views/peoplesearch";
+import MyProperties from "../../views/myproperties";
 
 const Layout = () => {
   return (
@@ -15,7 +16,7 @@ const Layout = () => {
         <Routes>
           <Route exact path="/people-search" element={<PeopleSearch />} />
           <Route path="/search" element={<PeopleSearch />} />
-          <Route path="/my-properties" element={<PeopleSearch />} />
+          <Route path="/my-properties" element={<MyProperties />} />
           <Route
             path="/people-search/person-detail/:id"
             element={<PeopleSearch personDetail />}
