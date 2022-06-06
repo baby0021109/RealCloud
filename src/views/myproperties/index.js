@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container, Row, Tabs, Tab, Card, Table } from "react-bootstrap";
+import { Container, Table } from "react-bootstrap";
 import { API_URL } from "../../constants/default";
 import ColumnResizer from "react-table-column-resizer";
 import $ from 'jquery';
-import CsvDownload from 'react-json-to-csv'
 import classNames from "classnames";
+import { CSVLink } from "react-csv";
 
 const initialSearchField = {
     address: "",
@@ -14,6 +14,7 @@ const initialSearchField = {
     owners: "",
     isOwnerDeepInfoPurchased: "",
 }
+let filename;
 
 const MyProperties = () => {
     const [loaded, setLoaded] = useState(false);
@@ -29,6 +30,16 @@ const MyProperties = () => {
     const [pagenum, setPageNum] = useState(1);
     const [curpagenum, setCurPageNum] = useState(1);
 
+    const headers = [
+        { label: "Address", key: "address" },
+        { label: "Owners", key: "owners" },
+        { label: "Bedrooms", key: "bedroomsCount" },
+        { label: "Bathrooms", key: "bathCount" },
+        { label: "Year Built", key: "yearBuilt" },
+        { label: "Deep Owner Searched?", key: "isOwnerDeepInfoPurchased"},
+        { label: "Property Note", key: "propertyNote"},
+        { label: "Followup Note", key: "followupNote"}
+      ];
     useEffect(() => {
         if (!loaded) {
             fetch(`${API_URL}/api/myproperties`)
@@ -37,6 +48,8 @@ const MyProperties = () => {
                     setMyProperties(myproperties);
                     pagecnt = (myproperties.length - 0.5) / 5;
                     setPageNum(parseInt(pagecnt) + 1);
+
+                    console.log(myproperties);
                 })
                 .catch((err) => {
                     console.log(err);
@@ -144,6 +157,9 @@ const MyProperties = () => {
         }
         for (var i = st; i <= en; i++)
             temp.push(searchData[i]);
+        if (curpagenum + 1 > pagenum)
+            setCurPageNum(pagenum);
+        else setCurPageNum(curpagenum + 1);
         setStart(st);
         setEnd(en);
         setData(temp);
@@ -164,6 +180,9 @@ const MyProperties = () => {
         }
         for (var i = st; i <= en; i++)
             temp.push(searchData[i]);
+        if (curpagenum - 1 < 1)
+            setCurPageNum(1);
+        else setCurPageNum(curpagenum - 1);
         setStart(st);
         setEnd(en);
         setData(temp);
@@ -206,35 +225,32 @@ const MyProperties = () => {
             }
         }
     }
-    
+
     const setChangeSearchField = (key, val) => {
         let newField = Object.assign({}, searchField);
         newField[key] = val;
         setSearchField(newField);
     }
 
-    const pagenumchanged = (e) =>{
+    const pagenumchanged = (e) => {
         let temp;
         temp = e.target.value;
-        if(temp < 1)
-        {
+        if (temp < 1) {
             setCurPageNum(1);
             temp = 1;
         }
-        else if ( temp > pagenum)
-        {
+        else if (temp > pagenum) {
             setCurPageNum(pagenum);
             temp = pagenum;
         }
         else setCurPageNum(temp);
 
         let st, en, temp1 = [];
-        if(temp < pagenum)
-        {
+        if (temp < pagenum) {
             st = (temp - 1) * rows;
             en = temp * rows - 1;
         }
-        else{
+        else {
             st = (temp - 1) * rows;
             en = searchData.length - 1;
         }
@@ -245,11 +261,19 @@ const MyProperties = () => {
         setData(temp1);
     }
 
+    const generatefilename = () => {
+        var tempDate = new Date();
+        let formatTwoDigits = (digit) => ("0" + digit).slice(-2);
+        var date = `${tempDate.getFullYear()}${formatTwoDigits(tempDate.getMonth() + 1)}${formatTwoDigits(tempDate.getDate())}`;
+        filename = "MyProperties-RealClouds-" + date;
+        return filename;
+    }
+
     return (
         <Container fluid className="myproperties">
             <h1 className="my-properties">My Properties</h1>
             <div className="download-btn">
-                <CsvDownload data={myproperties} className="btn-download">
+                <CSVLink data={myproperties} filename={generatefilename()} headers={headers} className="btn-download">
                     <svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40" className="download-btn-svg">
                         <g>
                             <path d="m35.8 8.5q0.6 0.6 1 1.7t0.5 1.9v25.8q0 0.8-0.6 1.5t-1.6 0.6h-30q-0.9 0-1.5-0.6t-0.6-1.5v-35.8q0-0.8 0.6-1.5t1.5-0.6h20q0.9 0 2 0.4t1.7 1.1z m-9.9-5.5v8.4h8.4q-0.3-0.6-0.5-0.9l-7-7q-0.3-0.2-0.9-0.5z m8.5 34.1v-22.8h-9.3q-0.9 0-1.5-0.6t-0.6-1.6v-9.2h-17.1v34.2h28.5z m-21.8-5.2v2.4h6.2v-2.4h-1.6l2.3-3.6q0.1-0.1 0.2-0.3t0.2-0.3 0-0.1h0.1q0 0.1 0.1 0.2 0 0.1 0.1 0.2t0.1 0.1 0.2 0.2l2.4 3.6h-1.7v2.4h6.5v-2.4h-1.6l-4.2-6.1 4.3-6.3h1.5v-2.4h-6.2v2.4h1.6l-2.3 3.6q-0.1 0.1-0.2 0.3t-0.2 0.3l0 0.1h-0.1q0-0.1-0.1-0.2-0.1-0.3-0.4-0.5l-2.3-3.6h1.7v-2.4h-6.5v2.4h1.5l4.2 6.1-4.3 6.3h-1.5z">
@@ -257,7 +281,7 @@ const MyProperties = () => {
                         </g>
                     </svg>
                     <span className="download-btn-span">Download .CSV file (Excel)</span>
-                </CsvDownload>
+                </CSVLink>
             </div>
             <div className="table-responsive">
                 <Table striped bordered hover>
@@ -336,7 +360,7 @@ const MyProperties = () => {
                     </div>
                     <div className="col-sm-3 text-center">
                         <span>Page</span>
-                        <input type="number" style={{ width: 50 }} min = {1} max= {pagenum} value = {curpagenum} onChange = {(e) => pagenumchanged(e)}/>
+                        <input type="number" style={{ width: 50 }} min={1} max={pagenum} value={curpagenum} onChange={(e) => pagenumchanged(e)} />
                         <span>  &nbsp; of {pagenum}</span>
                     </div>
                     <div className="col-sm-3 text-center">
