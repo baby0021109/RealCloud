@@ -36,10 +36,10 @@ const MyProperties = () => {
         { label: "Bedrooms", key: "bedroomsCount" },
         { label: "Bathrooms", key: "bathCount" },
         { label: "Year Built", key: "yearBuilt" },
-        { label: "Deep Owner Searched?", key: "isOwnerDeepInfoPurchased"},
-        { label: "Property Note", key: "propertyNote"},
-        { label: "Followup Note", key: "followupNote"}
-      ];
+        { label: "Deep Owner Searched?", key: "isOwnerDeepInfoPurchased" },
+        { label: "Property Note", key: "propertyNote" },
+        { label: "Followup Note", key: "followupNote" }
+    ];
     useEffect(() => {
         if (!loaded) {
             fetch(`${API_URL}/api/myproperties`)
@@ -283,23 +283,23 @@ const MyProperties = () => {
                     <span className="download-btn-span">Download .CSV file (Excel)</span>
                 </CSVLink>
             </div>
-            <div className="table-responsive">
+            <div >
                 <Table striped bordered hover>
                     <thead>
                         <tr className="header-namefield">
                             <th>    </th>
                             <th className={classNames({ "sort-asc": sortField && sortField == 'address' }, { "sort-desc": sortField && sortField == '-address' })} onClick={(e) => handleSort(e, "address")}>Address</th>
-                            <ColumnResizer className="columnResizer border-thin" minWidth={0} />
+                            <ColumnResizer className={classNames({ "sort-asc": sortField && sortField == 'bedroomsCount' }, { "sort-desc": sortField && sortField == '-bedroomsCount' }, { "border-thin": true })} minWidth={0} />
                             <th className={classNames({ "sort-asc": sortField && sortField == 'bedroomsCount' }, { "sort-desc": sortField && sortField == '-bedroomsCount' })} onClick={(e) => handleSort(e, "bedroomsCount")}>Beds</th>
-                            <ColumnResizer className="columnResizer border-thin" minWidth={0} />
+                            <ColumnResizer className={classNames({ "sort-asc": sortField && sortField == 'bathCount' }, { "sort-desc": sortField && sortField == '-bathCount' }, { "border-thin": true })} minWidth={0} />
                             <th className={classNames({ "sort-asc": sortField && sortField == 'bathCount' }, { "sort-desc": sortField && sortField == '-bathCount' })} onClick={(e) => handleSort(e, "bathCount")}>Baths</th>
-                            <ColumnResizer className="columnResizer border-thin" minWidth={0} />
+                            <ColumnResizer className={classNames({ "sort-asc": sortField && sortField == 'yearBuilt' }, { "sort-desc": sortField && sortField == '-yearBuilt' }, { "border-thin": true })} minWidth={0} />
                             <th className={classNames({ "sort-asc": sortField && sortField == 'yearBuilt' }, { "sort-desc": sortField && sortField == '-yearBuilt' })} onClick={(e) => handleSort(e, "yearBuilt")}>Year Built</th>
-                            <ColumnResizer className="columnResizer border-thin" minWidth={0} />
+                            <ColumnResizer className={classNames({ "sort-asc": sortField && sortField == 'owners' }, { "sort-desc": sortField && sortField == '-owners' }, { "border-thin": true })} minWidth={0} />
                             <th className={classNames({ "sort-asc": sortField && sortField == 'owners' }, { "sort-desc": sortField && sortField == '-owners' })} onClick={(e) => handleSort(e, "owners")}>Owners</th>
-                            <ColumnResizer className="columnResizer border-thin" minWidth={0} />
+                            <ColumnResizer className={classNames({ "sort-asc": sortField && sortField == 'isOwnerDeepInfoPurchased' }, { "sort-desc": sortField && sortField == '-isOwnerDeepInfoPurchased' }, { "border-thin": true })} minWidth={0} />
                             <th className={classNames({ "sort-asc": sortField && sortField == 'isOwnerDeepInfoPurchased' }, { "sort-desc": sortField && sortField == '-isOwnerDeepInfoPurchased' })} onClick={(e) => handleSort(e, "isOwnerDeepInfoPurchased")}>Owner Searched?</th>
-                            <ColumnResizer className="columnResizer border-thin" minWidth={0} />
+                            <ColumnResizer className={classNames({ "sort-asc": sortField && sortField == 'bedroomsCount' }, { "sort-desc": sortField && sortField == '-bedroomsCount' }, { "border-thin": true })} minWidth={0} />
                             <th>Detailed View</th>
                         </tr>
                         <tr className="search-panel">
@@ -345,8 +345,8 @@ const MyProperties = () => {
                                 {propertyFlags[index] ? (
                                     <tr>
                                         <td colSpan={14} className="p-4">
-                                            Property Note: n/a<br></br><br></br>
-                                            Follow up Note: n/a
+                                            Property Note: {property["propertyNote"] ? property["propertyNote"] : "n/a"}<br></br><br></br>
+                                            Follow up Note: {property["followupNote"] ? property["followupNote"] : "n/a"}
                                         </td>
                                     </tr>
                                 ) : null}
@@ -355,15 +355,15 @@ const MyProperties = () => {
                     </tbody>
                 </Table>
                 <div className="row align-items-center">
-                    <div className="col-sm-3">
-                        <button className="w-100 p-2 border-0" onClick={() => previouspage()}>Previous</button>
+                    <div className="col-sm-4">
+                        <button className="w-100 p-2 border-0 pagination-btn" onClick={() => previouspage()}>Previous</button>
                     </div>
-                    <div className="col-sm-3 text-center">
+                    <div className="col-sm-2 text-center">
                         <span>Page</span>
                         <input type="number" style={{ width: 50 }} min={1} max={pagenum} value={curpagenum} onChange={(e) => pagenumchanged(e)} />
                         <span>  &nbsp; of {pagenum}</span>
                     </div>
-                    <div className="col-sm-3 text-center">
+                    <div className="col-sm-2 text-center">
                         <select onChange={(e) => selectchange(e.target.value)}>
                             <option value={5}>5 rows</option>
                             <option value={10}>10 rows</option>
@@ -372,8 +372,8 @@ const MyProperties = () => {
                             <option value={100}>100 rows</option>
                         </select>
                     </div>
-                    <div className="col-sm-3">
-                        <button className="w-100 p-2 border-0" onClick={() => nextpage()}>Next</button>
+                    <div className="col-sm-4">
+                        <button className="w-100 p-2 border-0 pagination-btn" onClick={() => nextpage()}>Next</button>
                     </div>
                 </div>
             </div>
